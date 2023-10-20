@@ -1,0 +1,49 @@
+﻿
+@{
+    ViewBag.Title = "Product";
+}
+
+<div class="flex items-start">
+    <div class="w-[50%]">
+        <h3 class="text-center text-xl text-green-500 m-5 font-bold">Course List</h3>
+
+        <table class="table-auto w-full border-collapse border border-slate-500">
+            <thead>
+                <tr>
+                    <th class="border border-slate-600 py-4">Id</th>
+                    <th class="border border-slate-600 py-4">Name</th>
+                    <th class="border border-slate-600 py-4">Catagories</th>
+                    <th class="border border-slate-600 py-4">EDIT</th>
+                    <th class="border border-slate-600 py-4">DELETE</th>
+                </tr>
+            </thead>
+            @foreach (var c in Model)
+            {
+                <tbody>
+                    <tr class="text-center">
+                        <td class="border border-slate-600 py-4">@c.ID</td>
+                        <td class="border border-slate-600 py-4">@c.Name</td>
+                        <td class="border border-slate-600 py-4">@c.Catagory.Name</td>
+                        <td class="border border-slate-600 py-3"><a href="/Home/Edit/@c.ID"> EDIT</a></td>
+                        <td class="border border-slate-600 py-3"><a href="/Home/PDelete/@c.ID"> DELETE</a></td>
+                    </tr>
+                </tbody>
+            }
+        </table>
+    </div>
+
+    <div class="w-[50%] flex justify-center flex-col">
+        <h3 class="text-center text-xl text-green-500 m-5 font-bold">Add Course</h3>
+
+        <form class="flex flex-col gap-5 justify-center items-center" method="post" action="">
+            <select name="C_Id" class="w-[70%] py-4 border-[2px] rounded text-center">
+                @foreach (var c in ViewBag.Catagories)
+                {
+                    <option value="@c.ID"> @c.Name </option>
+                }
+                </option>
+                <input class="w-[70%] py-4 border-[2px] rounded text-center" type="text" name="Name" placeholder="Enter Course Name" />
+                <input class="bg-green-400 px-10 rounded py-3 cursor-pointer" type="submit" value="Add" />
+        </form>
+    </div>
+</div>
