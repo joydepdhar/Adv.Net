@@ -1,0 +1,54 @@
+﻿
+@{
+    ViewBag.Title = "ViewRestaurant";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <title>View Restaurant</title>
+</head>
+<body>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <h3 class="text-center text-success mt-4 mb-4 font-weight-bold">ViewRestaurantList</h3>
+                <table class="table table-bordered table-hover custom-table">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>RestaurantID</th>
+                            <th>Restaurant Name</th>
+                            <th>Restaurant Email</th>
+                            <th>Restaurant Address</th>
+                            <th>Contact</th>
+                            <th>Action Button</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var k in Model)
+                        {
+                            <tr>
+                                <td>@k.ID</td>
+                                <td>@k.Name</td>
+                                <td>@k.Email</td>
+                                <td>@k.Address</td>
+                                <td>@k.Phone</td>
+                                <td class="border border-slate-600 py-3 "><a href="/Admin/RestaurantDelete/@k.ID" class="btn btn-danger"> DELETE</a></td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+
+

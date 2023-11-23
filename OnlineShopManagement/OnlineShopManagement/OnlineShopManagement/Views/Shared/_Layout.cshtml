@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+        <a class="navbar-brand" href="/Home/Index">Kenakata</a>
+        <ul class="nav justify-content-end">
+            <li class="nav-item">
+                <a class="nav-link" href="/Home/SignIn">SignIn</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/Home/SignUP">SignUp</a>
+            </li>
+        </ul>
+    </nav>
+    
+    <div class="container body-content">
+        @RenderBody()
+
+        <footer style="text-align:center">
+            <p>&copy; @DateTime.Now.Year - JoydepDhar</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

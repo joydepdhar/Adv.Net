@@ -1,0 +1,31 @@
+﻿
+@{
+    ViewBag.Title = "Order";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<h2>Orders</h2>
+<table class="table table-bordered">
+
+    <tr>
+        <th>ID</th>
+        <th> Customer Name</th>
+        <th> Product Name</th>
+        <th>Ammount</th>
+        <th>Quantity</th>
+        <th>Status</th>
+        <th>Action</th>
+    </tr>
+    @foreach (var k in Model)
+    {
+        <tr text-align: center;>
+            <td>@k.Id</td>
+            <td>@k.User.Name</td>
+            <td>@k.Product.Name</td>
+            <td>@k.Price</td>
+            <td>@k.Quantity</td>
+            <td>@k.Status</td>
+            <td>  <a href="/admin/ManageOrder/@k.Id?status=Process" class="btn btn-success">Process</a>  <a href="/admin/ManageOrder/@k.Id?status=Decline" class="btn btn-danger">Decline</a></td>
+        </tr>
+    }
+</table>
+

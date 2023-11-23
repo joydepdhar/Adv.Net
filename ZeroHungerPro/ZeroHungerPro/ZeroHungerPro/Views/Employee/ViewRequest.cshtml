@@ -1,0 +1,49 @@
+﻿
+@{
+    ViewBag.Title = "ViewRequest";
+    Layout = "~/Views/Shared/_Employeelayout.cshtml";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <title>View FoodRequest</title>
+</head>
+<body>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <h3 class="text-center text-success mt-4 mb-4 font-weight-bold">ViewRequest</h3>
+                <table class="table table-bordered table-hover custom-table">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>Name</th>
+                            <th>Quantity</th>
+                            <th>PreservetionTime</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                        @foreach (var item in ViewBag.FoodList)
+                        {
+                            <tr>
+                                <td>@item.FoodName</td>
+                                <td>@item.Quantity</td>
+                                <td>@item.PreservationTime</td>
+                                <td>@item.Status</td>
+                                <td><a href="/Employee/Actions/@item.ID?Status=Pending&employeeID=@Model.ID" class="btn btn-success">RequestAccepted</a></td>
+                            </tr>
+                        }
+
+
+</table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+

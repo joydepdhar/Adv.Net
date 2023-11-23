@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AdminDashBoard</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+        <ul class="nav justify-content-center">
+            <li class="nav-item"><a class="nav-link active" href="/Customer/DashBoard">Home</a></li>
+            <li class="nav-item"><a class="nav-link active" href="/Customer/ProductList">ViewProduct</a></li>
+            <li class="nav-item"><a class="nav-link active" href="/Customer/Cart">ViewCart</a></li>
+            <li class="nav-item"><a class="nav-link active" href="/Customer/MyOrder">MyOrders</a></li>
+        </ul>
+    </nav>
+    <div class="container body-content">
+        @RenderBody()
+        <footer style="text-align:center">
+            <p>&copy; @DateTime.Now.Year - JoydepDhar</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
+
